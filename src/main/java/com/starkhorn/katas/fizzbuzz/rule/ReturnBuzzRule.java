@@ -3,12 +3,12 @@ package com.starkhorn.katas.fizzbuzz.rule;
 public class ReturnBuzzRule implements Rule {
 	
 	@Override
-	public String process(int input) {
-		return "buzz";
+	public boolean support(int input) {
+		return input % 5 == 0;
 	}
 	
 	@Override
-	public boolean support(int input) {
-		return input % 5 == 0;
+	public String process(int input) {
+		return "buzz";
 	}
 }
