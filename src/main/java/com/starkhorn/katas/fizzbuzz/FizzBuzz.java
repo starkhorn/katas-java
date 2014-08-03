@@ -22,12 +22,12 @@ class FizzBuzz {
 		);
 	}
 
-	public String say(int number) {
+	public String say(int input) {
 		for (Rule rule : rules) {
-			if (rule.support(number)) return rule.say(number);
+			if (rule.support(input)) return rule.process(input);
 		}
 		
-		return defaultRule.say(number);
+		return defaultRule.process(input);
 	}
 	
 }

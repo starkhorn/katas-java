@@ -8,7 +8,7 @@ public class BuzzRule implements Rule {
 	}
 	
 	@Override
-	public String say(int input) {
+	public String process(int input) {
 		return "buzz";
 	}
 	

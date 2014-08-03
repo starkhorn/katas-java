@@ -8,7 +8,7 @@ public class FizzRule implements Rule {
 	}
 
 	@Override
-	public String say(int input) {
+	public String process(int input) {
 		return "fizz";
 	}
 }
