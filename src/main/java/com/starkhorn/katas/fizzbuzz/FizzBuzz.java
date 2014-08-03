@@ -2,6 +2,7 @@ package com.starkhorn.katas.fizzbuzz;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 import com.starkhorn.katas.fizzbuzz.rule.BuzzRule;
 import com.starkhorn.katas.fizzbuzz.rule.DefaultRule;
@@ -23,11 +24,11 @@ class FizzBuzz {
 	}
 
 	public String say(int input) {
-		for (Rule rule : rules) {
-			if (rule.support(input)) return rule.process(input);
-		}
+		Optional<Rule> supportedRule = rules.stream()
+				.filter(rule -> rule.support(input))
+				.findFirst();
 		
-		return defaultRule.process(input);
+		return supportedRule.orElse(defaultRule).process(input);
 	}
 	
 }
