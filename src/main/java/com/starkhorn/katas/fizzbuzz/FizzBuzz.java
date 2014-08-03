@@ -13,11 +13,17 @@ class FizzBuzz {
 	private Rule defaultRule;
 
 	public String say(int input) {
+		Rule rule = getSupportedRuleOrDefaultRuleForInput(input);
+		
+		return rule.process(input);
+	}
+
+	private Rule getSupportedRuleOrDefaultRuleForInput(int input) {
 		Optional<Rule> supportedRule = rules.stream()
 				.filter(rule -> rule.support(input))
 				.findFirst();
 		
-		return supportedRule.orElse(defaultRule).process(input);
+		return supportedRule.orElse(defaultRule);
 	}
 
 	public void setRules(List<Rule> rules) {
