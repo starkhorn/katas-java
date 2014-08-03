@@ -1,19 +1,17 @@
 package com.starkhorn.katas.fizzbuzz;
 
-import org.junit.Before;
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertThat;
+
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 
-import static org.hamcrest.CoreMatchers.*;
-import static org.junit.Assert.*;
+import com.starkhorn.katas.test.SpringTestContext;
 
-public class FizzBuzzTest {
+public class FizzBuzzTest extends SpringTestContext {
 	
+	@Autowired
 	FizzBuzz fizzbuzz;
-	
-	@Before
-	public void setup() {
-		fizzbuzz = new FizzBuzz();
-	}
 	
 	@Test
 	public void  itReturns1WhenInputIs1() {

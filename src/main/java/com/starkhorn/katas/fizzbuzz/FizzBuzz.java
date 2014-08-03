@@ -1,27 +1,16 @@
 package com.starkhorn.katas.fizzbuzz;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import com.starkhorn.katas.fizzbuzz.rule.BuzzRule;
-import com.starkhorn.katas.fizzbuzz.rule.DefaultRule;
-import com.starkhorn.katas.fizzbuzz.rule.FizzBuzzRule;
-import com.starkhorn.katas.fizzbuzz.rule.FizzRule;
 import com.starkhorn.katas.fizzbuzz.rule.Rule;
 
 class FizzBuzz {
 	
-	private List<Rule> rules;
-	private DefaultRule defaultRule = new DefaultRule();
-
-	public FizzBuzz() {
-		rules = Arrays.asList(
-				new FizzBuzzRule(),
-				new FizzRule(),
-				new BuzzRule()
-		);
-	}
+	private List<Rule> rules = new ArrayList<Rule>();
+	
+	private Rule defaultRule;
 
 	public String say(int input) {
 		Optional<Rule> supportedRule = rules.stream()
@@ -29,6 +18,14 @@ class FizzBuzz {
 				.findFirst();
 		
 		return supportedRule.orElse(defaultRule).process(input);
+	}
+
+	public void setRules(List<Rule> rules) {
+		this.rules = rules;
+	}
+
+	public void setDefaultRule(Rule defaultRule) {
+		this.defaultRule = defaultRule;
 	}
 	
 }
