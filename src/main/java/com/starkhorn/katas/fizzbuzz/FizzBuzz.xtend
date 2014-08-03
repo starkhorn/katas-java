@@ -1,4 +1,4 @@
-package com.starkhorn
+package com.starkhorn.katas.fizzbuzz
 
 class FizzBuzz {
 	

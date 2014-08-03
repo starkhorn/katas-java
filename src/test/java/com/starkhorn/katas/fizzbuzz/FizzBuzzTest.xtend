@@ -1,6 +1,5 @@
 package com.starkhorn.katas.fizzbuzz
 
-import com.starkhorn.FizzBuzz
 import org.junit.Before
 import org.junit.Test
 
